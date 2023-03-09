@@ -69,7 +69,7 @@ const getDivisors = (number)=>{
     if(divisors)
   	  return divisors
     else
-      return ["prime"]
+      return "prime"
 }
 
 console.log("divisors: ", getDivisors(9968))
