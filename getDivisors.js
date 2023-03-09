@@ -1,10 +1,12 @@
 const getPrimeFactors = (number) => {
+  let x = 0;
   
   const factors = new Map();
   let Z = number
   let lim = Math.sqrt(number)
   console.log(Z);
   
+  var evenDistincter = 1;
   for (let i = 2; i<=lim;) {
     if(Z==1)
       break
@@ -15,7 +17,8 @@ const getPrimeFactors = (number) => {
       lim = Math.sqrt(Z)
     }
     else {
-      i++;
+      i+=evenDistincter;
+      evenDistincter=2;
     }
   }
   if(Z>1){
