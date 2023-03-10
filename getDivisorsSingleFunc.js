@@ -9,9 +9,8 @@ const getDivisors = (number) => {
   let primePows = [];
   let newDivisors = [];
   var evenDistincter = 1;
-  for (let i = 2; i<=lim;) {
-    if(Z==1)
-      break
+  
+  for (let i = 2; i<=lim and Z>1;) {
     if (Z%i == 0) {
       Z = Z / i;
       let newPow = i*(primePows.at(-1) ?? 1);
@@ -28,22 +27,20 @@ const getDivisors = (number) => {
       primePows = [];
     }
   }
+  if(Z==number)
+    return "простое"
+ 
   if(Z>1){
-    if(Z in divisors)
-      Z=Z*Z;
     newDivisors = divisors.map((a)=>a*Z);
     divisors = divisors.concat(newDivisors);
   }
   divisors.shift();
   divisors.pop();
-  if(divisors.length==0)
-    return "простое";
   
   divisors.sort((a,b)=>a-b);
   return divisors;
 }
 
 console.log("simpled divisors: ", getDivisors(89))
-
 console.log("simpled divisors: ", getDivisors(37))
 console.log("simpled divisors: ", getDivisors(9968))
