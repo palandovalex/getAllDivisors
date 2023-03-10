@@ -3,14 +3,13 @@ const getDivisors = (number) => {
   
   const factors = new Map();
   let Z = number
-  let lim = Math.sqrt(number)
-  console.log(Z);
+  let lim = Math.sqrt(number);
   let divisors = [1];
   let primePows = [];
   let newDivisors = [];
   var evenDistincter = 1;
   
-  for (let i = 2; i<=lim and Z>1;) {
+  for (let i = 2; i<=lim && Z>1;) {
     if (Z%i == 0) {
       Z = Z / i;
       let newPow = i*(primePows.at(-1) ?? 1);
@@ -41,6 +40,7 @@ const getDivisors = (number) => {
   return divisors;
 }
 
-console.log("simpled divisors: ", getDivisors(89))
-console.log("simpled divisors: ", getDivisors(37))
-console.log("simpled divisors: ", getDivisors(9968))
+var numbers =[109, 89, 9968, 627856];
+numbers.forEach((num)=>{
+  console.log(`divisors of ${num}: ${getDivisors(num)}`)
+})
